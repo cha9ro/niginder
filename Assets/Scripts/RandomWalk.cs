@@ -19,9 +19,9 @@ public class RandomWalk : MonoBehaviour
     void Update()
     {
         t++;
-        if (t > deltaT) {
-            x = Random.Range(-1f, 1f);
-            y = Random.Range(-1f, 1f);
+        if (t%200 > deltaT) {
+            x = Random.Range(-2f, 2f);
+            y = Random.Range(-2f, 2f);
             t = 0;
             deltaT = Random.Range(50f, 100f);
         }

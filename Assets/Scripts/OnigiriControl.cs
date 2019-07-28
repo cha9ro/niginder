@@ -9,7 +9,7 @@ public class OnigiriControl : MonoBehaviour
     private Vector3 initialPos;
     private Vector3 startPos;
     private Vector3 endPos;
-    public bool isReadyToThrow=false;
+    private bool isReadyToThrow=false;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,9 +56,8 @@ public class OnigiriControl : MonoBehaviour
             this.gameObject.GetComponent<MeshRenderer>().enabled = false;
             this.gameObject.GetComponent<MeshCollider>().enabled = false;
             yield return new WaitForSeconds(3);
-            Application.OpenURL("https://www.yahoo.co.jp");
+            Application.OpenURL("http://localhost:8081/top/missionComplete?userId=3"); 
             Destroy(this.gameObject);
-            Debug.Log("hit4");
         }else if (collision.gameObject.name == "Floor") {
             yield return new WaitForSeconds(3);
             Destroy(this.gameObject);
