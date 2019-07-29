@@ -56,8 +56,15 @@ public class OnigiriControl : MonoBehaviour
             this.gameObject.GetComponent<MeshRenderer>().enabled = false;
             this.gameObject.GetComponent<MeshCollider>().enabled = false;
             yield return new WaitForSeconds(3);
-            Application.OpenURL("http://localhost:8081/top/missionComplete?userId=3"); 
+            Application.OpenURL("https://www.yahoo.co.jp"); 
             Destroy(this.gameObject);
+
+            // Instantiate new onigiri
+            GameObject newOnigiri = Instantiate(this.gameObject, initialPos, Quaternion.Euler(180, 0, 90));
+            newOnigiri.GetComponent<Rigidbody>().useGravity=false;
+            newOnigiri.GetComponent<OnigiriControl>().enabled = true;
+            cameraTransform.gameObject.GetComponent<CameraControl>().onigiri = newOnigiri;
+            
         }else if (collision.gameObject.name == "Floor") {
             yield return new WaitForSeconds(3);
             Destroy(this.gameObject);
